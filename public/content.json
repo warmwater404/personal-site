@@ -15,16 +15,25 @@
       "navLabel": "首页",
       "data": {
         "eyebrow": "你好，我是",
-        "name": "张三",
-        "avatar": "./avatar.svg",
-        "headline": "前端开发 / 全栈工程师",
-        "subheadline": "把想法做成能用的东西，喜欢干净的设计和可靠的代码。目前专注于 Web 应用与交互体验。",
+        "name": "速溶咖啡",
+        "avatar": "./睡不醒.jpg",
+        "headline": "国家一级赖床资格证持有者 / 国家一级退堂鼓演奏大师",
+        "subheadline": "《当代脆皮青年》封面人物 / 早八刺客重点通缉对象 / 咖啡因静脉注射专员 / 电子宠物云饲养大师 / 微信运动垫底钉子户 / 奶茶店野生产品经理",
         "location": "中国 · 上海",
         "email": "hello@example.com",
         "socials": [
-          { "label": "GitHub", "url": "https://github.com/yourname" },
-          { "label": "发邮件", "url": "mailto:hello@example.com" },
-          { "label": "下载简历", "url": "#" }
+          {
+            "label": "GitHub",
+            "url": "https://github.com/yourname"
+          },
+          {
+            "label": "发邮件",
+            "url": "mailto:hello@example.com"
+          },
+          {
+            "label": "下载简历",
+            "url": "#"
+          }
         ]
       }
     },
@@ -88,28 +97,41 @@
           {
             "title": "项目名称一",
             "summary": "一句话说清这个项目解决了什么问题、你在其中做了什么。",
-            "tags": ["React", "TypeScript", "Vite"],
+            "tags": [
+              "React",
+              "TypeScript",
+              "Vite"
+            ],
             "url": "https://example.com",
             "year": "2025"
           },
           {
             "title": "项目名称二",
             "summary": "一句话说清这个项目解决了什么问题、你在其中做了什么。",
-            "tags": ["Node.js", "PostgreSQL"],
+            "tags": [
+              "Node.js",
+              "PostgreSQL"
+            ],
             "url": "https://example.com",
             "year": "2024"
           },
           {
             "title": "项目名称三",
             "summary": "一句话说清这个项目解决了什么问题、你在其中做了什么。",
-            "tags": ["Python", "数据分析"],
+            "tags": [
+              "Python",
+              "数据分析"
+            ],
             "url": "https://example.com",
             "year": "2024"
           },
           {
             "title": "项目名称四",
             "summary": "一句话说清这个项目解决了什么问题、你在其中做了什么。",
-            "tags": ["设计", "动效"],
+            "tags": [
+              "设计",
+              "动效"
+            ],
             "url": "",
             "year": "2023"
           }
@@ -129,25 +151,61 @@
           {
             "title": "常用工具",
             "items": [
-              { "label": "GitHub", "url": "https://github.com", "desc": "代码托管" },
-              { "label": "MDN 文档", "url": "https://developer.mozilla.org/zh-CN/", "desc": "Web 技术参考" },
-              { "label": "Figma", "url": "https://www.figma.com", "desc": "界面设计" }
+              {
+                "label": "GitHub",
+                "url": "https://github.com",
+                "desc": "代码托管"
+              },
+              {
+                "label": "MDN 文档",
+                "url": "https://developer.mozilla.org/zh-CN/",
+                "desc": "Web 技术参考"
+              },
+              {
+                "label": "Figma",
+                "url": "https://www.figma.com",
+                "desc": "界面设计"
+              }
             ]
           },
           {
             "title": "学习资源",
             "items": [
-              { "label": "React 官方文档", "url": "https://zh-hans.react.dev", "desc": "中文文档" },
-              { "label": "Vite 官方文档", "url": "https://cn.vitejs.dev", "desc": "构建工具" },
-              { "label": "MDN CSS 教程", "url": "https://developer.mozilla.org/zh-CN/docs/Web/CSS", "desc": "样式基础" }
+              {
+                "label": "React 官方文档",
+                "url": "https://zh-hans.react.dev",
+                "desc": "中文文档"
+              },
+              {
+                "label": "Vite 官方文档",
+                "url": "https://cn.vitejs.dev",
+                "desc": "构建工具"
+              },
+              {
+                "label": "MDN CSS 教程",
+                "url": "https://developer.mozilla.org/zh-CN/docs/Web/CSS",
+                "desc": "样式基础"
+              }
             ]
           },
           {
             "title": "我的其他主页",
             "items": [
-              { "label": "技术博客", "url": "https://example.com", "desc": "记录与分享" },
-              { "label": "知乎", "url": "https://www.zhihu.com", "desc": "问答社区" },
-              { "label": "掘金", "url": "https://juejin.cn", "desc": "开发者社区" }
+              {
+                "label": "技术博客",
+                "url": "https://example.com",
+                "desc": "记录与分享"
+              },
+              {
+                "label": "知乎",
+                "url": "https://www.zhihu.com",
+                "desc": "问答社区"
+              },
+              {
+                "label": "掘金",
+                "url": "https://juejin.cn",
+                "desc": "开发者社区"
+              }
             ]
           }
         ]

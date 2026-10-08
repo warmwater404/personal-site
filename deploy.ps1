@@ -174,7 +174,7 @@ if ($pending) {
 
 # ---------------------------------------------------------------- 关联远程
 
-Write-Step "[3/4] 关联远程仓库…"
+Write-Step "[3/4] 关联远程仓库并同步…"
 # 用 git remote 列名字来探测：它不会因为「还没有 origin」而报错
 $remoteAdded = $false
 $remotes = @(& $gitExe remote 2>&1)
@@ -190,6 +190,38 @@ if ($remotes -contains "origin") {
   & $gitExe remote add origin $RepoUrl 2>&1 | Out-Null
   $remoteAdded = $true
   Write-Host "已添加远程仓库 origin"
+}
+
+# 远端可能已经有你从「编辑模式」保存产生的提交。
+# 不先同步就直接 push 会被拒绝（non-fast-forward），所以这里先合并远端改动。
+& $gitExe ls-remote --exit-code --heads origin main 2>&1 | Out-Null
+if ($LASTEXITCODE -eq 0) {
+  & $gitExe fetch origin main 2>&1 | Out-Null
+
+  $behindRaw = (& $gitExe rev-list --count "HEAD..FETCH_HEAD" 2>&1 | Select-Object -First 1)
+  $behindCount = 0
+  if ("$behindRaw" -match '^\d+$') { $behindCount = [int]$behindRaw }
+
+  if ($behindCount -gt 0) {
+    Write-Host "远端有 $behindCount 个你本地没有的提交（通常来自网页上的编辑模式），正在合并…"
+    & $gitExe pull --rebase origin main 2>&1 | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+      Write-Fail "自动合并失败：你本地改的内容和网页上改的内容撞车了。"
+      Write-Host ""
+      Write-Host "以网页上的内容为准来恢复（会丢弃本地这次提交）："
+      Write-Host "  git rebase --abort"
+      Write-Host "  git reset --hard origin/main"
+      Write-Host ""
+      Write-Host "执行完再把新文件（例如图片）放回对应目录，重新运行本脚本即可。"
+      Write-Host "如果本地有不想丢的改动，先执行 git rebase --abort 然后手动处理。"
+      exit 1
+    }
+    Write-Host "已合并远端改动。" -ForegroundColor Green
+  } else {
+    Write-Host "远端没有新提交。"
+  }
+} else {
+  Write-Host "远端还是空仓库，无需合并。"
 }
 
 # ---------------------------------------------------------------- 推送

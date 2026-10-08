@@ -32,7 +32,8 @@
 ├─ index.html                  # 页面外壳
 ├─ package.json
 ├─ vite.config.js
-├─ deploy.ps1                  # ★ 一键部署脚本（装好 Git 后运行它即可）
+├─ deploy.cmd                  # ★ 一键部署（推荐运行这个，双击也行）
+├─ deploy.ps1                  #   部署脚本本体，由 deploy.cmd 调起
 ├─ .github/workflows/deploy.yml # 推送到 main 后自动部署
 ├─ public/
 │  ├─ content.json             # ★ 网站内容（由编辑模式自动更新）
@@ -176,16 +177,27 @@ npm.cmd run dev      # 启动，会自动打开浏览器
 
 ### 方式一：运行一键脚本（推荐）
 
-装好 Git（或 GitHub Desktop）、并在 GitHub 上新建好空仓库之后，在项目根目录执行：
+在项目根目录执行：
 
 ```powershell
-.\deploy.ps1
+.\deploy.cmd
 ```
 
-脚本会依次做四件事：**验证构建 → 本地提交 → 关联远程仓库 → 推送**。
+> **为什么用 `.cmd` 而不是 `.ps1`？**
+> Windows 默认禁止运行未签名的 PowerShell 脚本（报「禁止运行脚本 / 未对文件进行数字签名」）。
+> `deploy.cmd` 会用 `-ExecutionPolicy Bypass` 调起 `deploy.ps1`，绕开这个限制，
+> 不需要修改你系统的安全设置。也可以直接双击 `deploy.cmd`。
+
+脚本会依次做四件事：**验证构建 → 本地提交 → 关联远程仓库（含同步远端）→ 推送**。
 中途会让你粘贴仓库地址，例如 `https://github.com/你的用户名/my-homepage.git`。
 
-如果提示「禁止运行脚本」，这是 PowerShell 的默认安全策略，执行一次即可解除：
+如果你更想直接跑 PowerShell 脚本，也可以：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\deploy.ps1
+```
+
+或者一次性解除限制（这会修改你系统的设置，所以不是首选）：
 
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned

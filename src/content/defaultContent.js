@@ -1,0 +1,183 @@
+/* ============================================================================
+ *  内置默认内容（兜底用）
+ *  ---------------------------------------------------------------------------
+ *  ⚠️ 真正生效的内容文件是 public/content.json。
+ *  这个文件只在「拉取 content.json 失败」时作为兜底显示，正常情况不会被读取。
+ *
+ *  所以：改内容请用网页上的编辑模式，不要直接改这里。
+ *  只有在你想「把整站恢复成出厂默认」时，才把 public/content.json 删掉重建。
+ * ==========================================================================*/
+
+export const DEFAULT_CONTENT = {
+  version: 1,
+
+  /* 网站级设置 */
+  site: {
+    title: "张三 · 个人主页",
+    description: "前端开发 / 全栈工程师的个人主页",
+    footerText: "用 Vite + React 构建",
+    copyright: "© 2026 张三",
+  },
+
+  /* 页面区块列表，顺序即页面上的显示顺序 */
+  blocks: [
+    {
+      id: "blk_hero",
+      type: "hero",
+      visible: true,
+      showInNav: true,
+      navLabel: "首页",
+      data: {
+        eyebrow: "你好，我是",
+        name: "张三",
+        avatar: "./avatar.svg",
+        headline: "前端开发 / 全栈工程师",
+        subheadline:
+          "把想法做成能用的东西，喜欢干净的设计和可靠的代码。目前专注于 Web 应用与交互体验。",
+        location: "中国 · 上海",
+        email: "hello@example.com",
+        socials: [
+          { label: "GitHub", url: "https://github.com/yourname" },
+          { label: "发邮件", url: "mailto:hello@example.com" },
+          { label: "下载简历", url: "#" },
+        ],
+      },
+    },
+
+    {
+      id: "blk_about",
+      type: "about",
+      visible: true,
+      showInNav: true,
+      navLabel: "关于我",
+      data: {
+        eyebrow: "关于我",
+        title: "一点自我介绍",
+        paragraphs: [
+          "这里是你的自我介绍。可以写你现在在做什么、擅长什么、对什么感兴趣。两三段就够，太长反而没人看完。",
+          "第二段可以写你的经历脉络，比如「从 XX 年开始接触编程，做过 XX、XX，现在专注于 XX」。也可以写一点工作之外的事情，让页面有个人味。",
+        ],
+        skillsTitle: "技能",
+        skills: [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Vue",
+          "Node.js",
+          "Python",
+          "CSS / 视觉还原",
+          "Git",
+        ],
+        timelineTitle: "经历",
+        timeline: [
+          {
+            period: "2023 — 至今",
+            title: "高级前端工程师",
+            org: "某某科技有限公司",
+            desc: "负责核心业务系统的前端架构与组件库建设，推动构建流程优化，首屏加载时间下降约 40%。",
+          },
+          {
+            period: "2021 — 2023",
+            title: "前端工程师",
+            org: "某某网络科技",
+            desc: "参与多个中后台项目从 0 到 1 的开发，主导数据可视化模块。",
+          },
+          {
+            period: "2017 — 2021",
+            title: "计算机科学与技术 · 学士",
+            org: "某某大学",
+            desc: "在校期间参与 ACM 集训，担任技术社团负责人。",
+          },
+        ],
+      },
+    },
+
+    {
+      id: "blk_projects",
+      type: "projects",
+      visible: true,
+      showInNav: true,
+      navLabel: "作品集",
+      data: {
+        eyebrow: "作品集",
+        title: "做过的项目",
+        items: [
+          {
+            title: "项目名称一",
+            summary: "一句话说清这个项目解决了什么问题、你在其中做了什么。",
+            tags: ["React", "TypeScript", "Vite"],
+            url: "https://example.com",
+            year: "2025",
+          },
+          {
+            title: "项目名称二",
+            summary: "一句话说清这个项目解决了什么问题、你在其中做了什么。",
+            tags: ["Node.js", "PostgreSQL"],
+            url: "https://example.com",
+            year: "2024",
+          },
+          {
+            title: "项目名称三",
+            summary: "一句话说清这个项目解决了什么问题、你在其中做了什么。",
+            tags: ["Python", "数据分析"],
+            url: "https://example.com",
+            year: "2024",
+          },
+          {
+            title: "项目名称四",
+            summary: "一句话说清这个项目解决了什么问题、你在其中做了什么。",
+            tags: ["设计", "动效"],
+            url: "",
+            year: "2023",
+          },
+        ],
+      },
+    },
+
+    {
+      id: "blk_links",
+      type: "links",
+      visible: true,
+      showInNav: true,
+      navLabel: "收藏夹",
+      data: {
+        eyebrow: "收藏夹",
+        title: "我常去的地方",
+        groups: [
+          {
+            title: "常用工具",
+            items: [
+              { label: "GitHub", url: "https://github.com", desc: "代码托管" },
+              {
+                label: "MDN 文档",
+                url: "https://developer.mozilla.org/zh-CN/",
+                desc: "Web 技术参考",
+              },
+              { label: "Figma", url: "https://www.figma.com", desc: "界面设计" },
+            ],
+          },
+          {
+            title: "学习资源",
+            items: [
+              { label: "React 官方文档", url: "https://zh-hans.react.dev", desc: "中文文档" },
+              { label: "Vite 官方文档", url: "https://cn.vitejs.dev", desc: "构建工具" },
+              {
+                label: "MDN CSS 教程",
+                url: "https://developer.mozilla.org/zh-CN/docs/Web/CSS",
+                desc: "样式基础",
+              },
+            ],
+          },
+          {
+            title: "我的其他主页",
+            items: [
+              { label: "技术博客", url: "https://example.com", desc: "记录与分享" },
+              { label: "知乎", url: "https://www.zhihu.com", desc: "问答社区" },
+              { label: "掘金", url: "https://juejin.cn", desc: "开发者社区" },
+            ],
+          },
+        ],
+      },
+    },
+  ],
+};
